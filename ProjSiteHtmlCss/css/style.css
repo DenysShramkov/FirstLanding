@@ -4,39 +4,66 @@
     padding: 0;
 }
 
+
+html, body {
+    width: 100%;
+    font-size: 18px; /* 1rem will be equal to 18px */
+}
+
 .container {
-    width: 1140px;
-    margin: 0 auto;    /* хитрость, чтобы расположыть блочный элемент по центру */
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;  /* a trick to center element in the parent block */
+    /* display: flex; /* a trick to center content in the block */
+    /* justify-content: center; */
+    padding: 0 1rem;
 }
 
 .promo {
-    height: 800px;
+    /* height: 800px; */
+    height: 100vh; /* height of the block is equal to 100% of view port height or window height*/
     background: url(../img/bg/bgtop.jpg) center center/cover no-repeat;
-    padding: 39px 0 62px 0; /* правильно такие расстояния между элементами адавать внутренними отступами (padding) родителського элемента, а не через margin его потомков */
+    padding: 1.5rem 0; /* правильно такие расстояния между элементами адавать внутренними отступами (padding) родителського элемента, а не через margin его потомков */
+}
+
+.promo .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
 .logo .logo_img {
-    margin: 0 auto;
-    display: block; /* выравнивание через margin работает только для блочных элементов */
+    /* margin: 0 auto; */
+    /* display: block; /* выравнивание через margin работает только для блочных элементов */
+    margin-bottom: .75rem;
 }
 
 .logo_text {
     text-transform: uppercase;
     color: #ffffff;
     font-family: Roboto, sans-serif;
-    font-size: 15px;
+    font-size: .83rem; /* 15px/18px(or 1 rem) => .83rem */
     font-weight: 500;
-    line-height: 24px; /* межстрочный интервал */
-    text-align: center;
-    margin-top: 14px;
+    /* line-height: 1.33rem; /* межстрочный интервал */
+    /* text-align: center; */
+    /* margin-top: .8rem; */
 }
- h1 {
-    margin-top: 53px;
- }
+
+h1 {
+    /*margin-top: 3rem; /* try to avoid absolute number as much as possible */
+    margin: 0;
+}
 
 .title {
     font-family: Roboto, sans-serif;
-    font-size: 41px;
+    font-size: 2.27rem;
     font-weight: 900;
     text-transform: uppercase;
     color: #f9bf3b;
@@ -45,7 +72,7 @@
 
 .simple .title_big {
     font-family: Roboto, sans-serif;
-    font-size: 80px;
+    font-size: 4.4rem;
     font-weight: 900;
     text-transform: uppercase;
     color: #ffffff;
@@ -53,17 +80,17 @@
 }
 
 h2.title {
-    margin-top: 10px;
+    /* margin-top: .5rem; */
 }
 
 .promo_text {
     font-family: Roboto, sans-serif;
-    font-size: 21px;
-    line-height: 28px;
+    font-size: 1.16rem;
+    line-height: 1.55rem;
     font-weight: 300;
     color: #ffffff;
     text-align: center;
-    margin-top: 23px;
+    /* margin-top: 1.28rem; */
 }
 
 .promo .promo_text span {
@@ -75,7 +102,7 @@ h2.title {
 .promo .promo_btn, .present .present_btn {
     display: block;
     margin: 0 auto;
-    margin-top: 73px;
+    /* margin-top: 73px; */
     width: 313px;
     height: 72px;
     background-image: linear-gradient(to top, #2798b9 0%, #3ab6da 100%);
@@ -107,7 +134,7 @@ h2.title {
     text-transform: uppercase;
     color: #ffffff;
     text-align: center;
-    margin-top: 73px;
+    /* margin-top: 73px; */
 }
 
 .more_img {
@@ -364,3 +391,11 @@ footer .footer_links {
     text-align: center;
 }
 
+/* for responsiveness */
+@media (max-width: 720px) {
+    html, body {
+        font-size: 12px;
+        /* 1rem will be equal to 16px now and all your indentations will be recalculated */
+        /* to check how it works, shrink browser window to the width of 720px or less and look at the first block */
+    }
+}
